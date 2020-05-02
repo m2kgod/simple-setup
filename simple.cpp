@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     char name[20];
-    int ch,tp,st,n,ph,ab,nn = 0,len = 0;
+    int ch,tp,st,n,ph,ab,nn = 0;
 	std::string temp;
 	bool chec = true;
 	std::string check;

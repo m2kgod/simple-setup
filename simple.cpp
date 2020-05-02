@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     char name[20];
-    int ch,tp,st,n,ph,nn = 0,len = 0;
+    int ch,tp,st,n,ph,ab,nn = 0,len = 0;
 	std::string temp;
 	bool chec = true;
 	std::string check;
@@ -86,6 +86,15 @@ int main()
 		cout<<"5.Hindi\n";
 		cout<<"Enter your choice";
 		cin>>st;
+		if(st==1)
+		{
+			cout<<"Available Books";
+			cout<<"1.The Daughter of Anderson Crow  by George Barr";
+			if(ab==1)
+			{
+				cout<<"";
+			}	
+			
 	}
 	else if(ch==3)
 	{

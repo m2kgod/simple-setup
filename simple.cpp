@@ -1,24 +1,68 @@
 #include<iostream>
 #include<cstdio>
 #include<cstdlib>
+#include<fstream>
+#include<string>
 using namespace std;
 int main()
 {
     char name[20];
-    int ch,tp,st,n,ph;
+    int ch,tp,st,n,ph,nn = 0,len = 0;
+	std::string temp;
+	bool chec = true;
+	std::string check;
 	cout<<" Welcome to Ajmal AI international,\n Enter your name : ";
     cin.getline(name,20);
-    cout<<" Enter your phone number: ";
-    cin>>ph;
-     if(ph==10)
-    {
-		cout<<"verified";
+	ifstream inFile("database.csv");
+	while(std::getline(inFile, temp))
+	{
+		check.append(temp);
+	}
+	for(int i=0;name[i]!='\0';i++)
+	{
+		if(check[i] == ',')
+		{
+			continue;
+		}
+		if(check[i] == name[i])
+		{
+			chec = false;
+		}
+		else{
+    		cout<<" Enter your phone number: ";
+    		cin>>ph;
+			fstream outFile("database.csv", fstream::out | fstream::app);
+			if(outFile.is_open())
+			{
+				outFile << name << "," << ph <<"\n";
+				outFile.close(); 
+			}
+			else {
+				cout << "\n Error !";
+			}
+			break;
+		}	
+	}
+	if(!chec)
+	{
+		cout << "\n Username Already Exists \n";
+		exit(0);
+	}		 
+    while(ph > 0)
+	{
+		ph = ph / 10;
+		nn++;
+	}
+	if(nn == 10)
+	{
+		cout << "\n Phone Verified ";
 	}
 	else
 	{
 		cout<<"sorry invalid phone number";
 		exit(0);
 	}
+	getchar();
     cout<<" Thank you Mr/Mrs "<<name <<", You have been registered !\n";
     cout<<" Choose your options :\n";
     cout<<" 1) Career guidence \n";
